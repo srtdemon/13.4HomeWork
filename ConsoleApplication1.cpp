@@ -1,16 +1,14 @@
 #include <iostream>
 #include "Helpers.h"
-#include <math.h>
+#include <iomanip>
+#include <string>
 
 int main()
 {
-    int a, b;
-    std::cout << "Enter first number ";
-    std::cin >> a;
-
-    std::cout << "Enter second number ";
-    std::cin >> b;
-
-    std::cout << "The square of the sum = " << sum(a, b);
+    std::cout << "Enrer your name";
+    std::string name;
+    std::getline(std::cin, name);
+    int Size = name.length();
+    std::cout << "Your name is " << name << ". Name length is " << Size << ". First letter is " << name[0] << ". Last letter is " << name[Size-1];
     return 0;
 }
