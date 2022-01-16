@@ -1,31 +1,36 @@
 #include <iostream>
-#include <math.h>
+#include <stack>  
 
 
-class Vector
-{
-public:
-	Vector() : x(1), y(4), z(2)
-	{}
-	void VivodCoord()
-	{
-		std::cout << "x = " << x << ",y = " << y << ",z = " << z << '\n';
-	}
-	double Module(double x, double y,double z)
-	{
-		return sqrt(x * x + y * y + z * z);
-	}
-private:
-	double x, y, z;
-};
+using namespace std;
 
-int main()
-{
-	double xC, yC, zC;
-	std::cout << "Input custom x, y and z";
-	std::cin >> xC >> yC >> zC;
-	Vector first;
-	first.VivodCoord();
-	std::cout << "Module of custom vector = " << first.Module(xC, yC, zC);
-	return 0;
+int main() {
+    setlocale(LC_ALL, "rus");
+    stack <int> steck; 
+    int r;
+    cout << " Введите начальный размер стека";
+    cin >> r;
+
+
+    int i = 0;
+
+    cout << "Введите " << r << " чисел: " << endl; 
+
+    while (i != r) {
+        int a;
+        cin >> a;
+
+        steck.push(a); // добавляем верхний элемент 
+        i++;
+    }
+
+    cout << "Верхний элемент стека: " << steck.top() << endl; 
+    
+    cout << "Удаляем верхний элемент стека " << endl;
+
+    steck.pop();  // удаляем верхний элемент
+
+    cout << "Теперь верхний элемент стека это: " << steck.top(); 
+                                                            
+    return 0;
 }
