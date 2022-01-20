@@ -1,36 +1,43 @@
 #include <iostream>
-#include <stack>  
+class Animal
+{
+public:
+    virtual void voice() const = 0;
+};
 
-
-using namespace std;
-
-int main() {
-    setlocale(LC_ALL, "rus");
-    stack <int> steck; 
-    int r;
-    cout << " Введите начальный размер стека";
-    cin >> r;
-
-
-    int i = 0;
-
-    cout << "Введите " << r << " чисел: " << endl; 
-
-    while (i != r) {
-        int a;
-        cin >> a;
-
-        steck.push(a); // добавляем верхний элемент 
-        i++;
+class Cat : public Animal
+{
+public:
+    void voice() const override
+    {
+        std::cout << "Meow!\n";
     }
+};
 
-    cout << "Верхний элемент стека: " << steck.top() << endl; 
-    
-    cout << "Удаляем верхний элемент стека " << endl;
+class Dog : public Animal
+{
+public:
+    void voice() const override
+    {
+        std::cout << "Woof!\n";
+    }
+};
 
-    steck.pop();  // удаляем верхний элемент
+class Cow : public Animal
+{
+public:
+    void voice() const override
+    {
+        std::cout << "Moooo!\n";
+    }
+};
 
-    cout << "Теперь верхний элемент стека это: " << steck.top(); 
-                                                            
-    return 0;
+int main()
+{
+    Animal* animals[3];
+    animals[0] = new Cat();
+    animals[1] = new Dog();
+    animals[2] = new Cow();
+    for (Animal* a : animals)
+        a->voice();
 }
